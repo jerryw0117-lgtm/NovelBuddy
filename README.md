@@ -42,28 +42,28 @@
 一键启动：
 
 ```powershell
-cd E:\obs\novelbuddy
+cd /path/to/novelbuddy
 .\start-novelbuddy.ps1
 ```
 
 启动并打开浏览器：
 
 ```powershell
-cd E:\obs\novelbuddy
+cd /path/to/novelbuddy
 .\start-novelbuddy.ps1 -OpenBrowser
 ```
 
 停止后台服务：
 
 ```powershell
-cd E:\obs\novelbuddy
+cd /path/to/novelbuddy
 .\stop-novelbuddy.ps1
 ```
 
 手动启动：
 
 ```powershell
-cd E:\obs\novelbuddy
+cd /path/to/novelbuddy
 uv run novelbuddy-web --port 8765
 ```
 
@@ -85,7 +85,7 @@ http://127.0.0.1:8765
 
 ```powershell
 # 方式1：设置环境变量
-$env:NOVELBUDDY_PROJECT = "E:\obs\xiaoshuo\都市"
+$env:NOVELBUDDY_PROJECT = "/path/to/your/novel"
 .\start-novelbuddy.ps1
 
 # 方式2：使用配置文件
@@ -117,12 +117,20 @@ Copy-Item .env.example .env
 ### 命令行
 
 ```powershell
-cd E:\obs\novelbuddy
-uv run novelbuddy scan E:\obs\xiaoshuo\都市
-uv run novelbuddy context E:\obs\xiaoshuo\都市 8
-uv run novelbuddy prompt E:\obs\xiaoshuo\都市 8 --out E:\obs\xiaoshuo\都市\nb_prompt_ch08.md
-uv run novelbuddy audit E:\obs\xiaoshuo\都市 E:\obs\xiaoshuo\都市\AAA\chapters\第7章-前任住户.md
-uv run novelbuddy export E:\obs\xiaoshuo\都市 --out E:\obs\xiaoshuo\都市\novelbuddy_export.md
+# 扫描项目
+uv run novelbuddy scan /path/to/your/novel
+
+# 生成第8章上下文包
+uv run novelbuddy context /path/to/your/novel 8
+
+# 生成写作提示词
+uv run novelbuddy prompt /path/to/your/novel 8 --out /path/to/your/novel/nb_prompt_ch08.md
+
+# 审查章节
+uv run novelbuddy audit /path/to/your/novel /path/to/your/novel/chapters/第7章.md
+
+# 导出项目资料
+uv run novelbuddy export /path/to/your/novel --out /path/to/your/novel/novelbuddy_export.md
 ```
 
 ## 设计原则
