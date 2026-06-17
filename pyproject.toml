@@ -1,0 +1,16 @@
+[project]
+name = "novelbuddy"
+version = "0.1.0"
+description = "Local novel writing assistant for project assets, context packs, and manuscript audits."
+requires-python = ">=3.11"
+dependencies = [
+    "sentence-transformers>=3.0.0",
+]
+
+[project.scripts]
+novelbuddy = "novelbuddy.cli:main"
+novelbuddy-web = "novelbuddy.web:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
